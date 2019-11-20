@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::post('/login', 'AuthenticationController@login')->name('login');
 Route::post('/register', 'AuthenticationController@register')->name('register');
 
+
 Route::middleware('auth:api')->group(function () {
+    Route::resource('/fileupload', 'FileuploadController');
     Route::get('/logout','AuthenticationController@logout')->name('logout');
 });
