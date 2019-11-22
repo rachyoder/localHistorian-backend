@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Fileupload;
+use App\Http\Resources\Marker as MarkerResource;
 
 class FileuploadController extends Controller
 {
+    public function index()
+    {
+        return MarkerResource::collection(Fileupload::all());
+    }
+
     public function store(Request $request)
     {
         $name = '';
@@ -14,15 +20,12 @@ class FileuploadController extends Controller
             $image = $request->get('file');
             $name = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
             \Image::make($request->get('file'))->save(public_path('images/') . $name);
-            $lat = \Image::make($request->get('file'))->exif('Latitude');
-            $lon = \Image::make($request->get('file'))->exif('Longitude');
         }
-        
         if ($request->get('coords')) {
             $coords = $request->get('coords');
             $coords_arr = explode(',', $coords);
-            // $lat = $coords_arr[0];
-            // $lon = $coords_arr[1];
+            $lat = $coords_arr[0];
+            $lon = $coords_arr[1];
         }
 
         $fileupload = new Fileupload();
