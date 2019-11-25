@@ -18,6 +18,8 @@ class CreateFileuploadsTable extends Migration
             $table->string('filename');
             $table->float('lat', 10, 7);
             $table->float('lon', 10, 7);
+            $table->string('title');
+            $table->string('desc', 1000);
             $table->timestamps();
         });
     }

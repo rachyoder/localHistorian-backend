@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::post('/login', 'AuthenticationController@login')->name('login');
 Route::post('/register', 'AuthenticationController@register')->name('register');
 Route::get('/markers', 'FileuploadController@index');
+Route::get('/markers/{imgName}', 'FileuploadController@getImg');
 
 Route::middleware('auth:api')->group(function () {
     Route::post('/fileupload', 'FileuploadController@store');

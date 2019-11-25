@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Fileupload;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\Marker as MarkerResource;
 
 class FileuploadController extends Controller
@@ -27,12 +28,24 @@ class FileuploadController extends Controller
             $lat = $coords_arr[0];
             $lon = $coords_arr[1];
         }
+        $title = $request->get('title');
+        $desc = $request->get('desc');
+
 
         $fileupload = new Fileupload();
         $fileupload->filename = $name;
         $fileupload->lat = $lat;
         $fileupload->lon = $lon;
+        $fileupload->title = $title;
+        $fileupload->desc = $desc;
         $fileupload->save();
         return response()->json('Successfully added');
     }
+    
+    public function getImg($imgName)
+    {
+        $url = public_path().("/images/".$imgName);
+        return($url);
+    }
 }
+
