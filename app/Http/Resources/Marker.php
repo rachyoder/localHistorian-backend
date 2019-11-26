@@ -21,6 +21,7 @@ class Marker extends JsonResource
             'title' => $this->title,
             'desc' => $this->desc,
             'addr' => $this->addr,
+            'isVerified' => $this->isVerified,
         ];
     }
 }

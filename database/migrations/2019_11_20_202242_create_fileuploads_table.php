@@ -21,6 +21,7 @@ class CreateFileuploadsTable extends Migration
             $table->string('title');
             $table->string('desc', 1000);
             $table->string('addr');
+            $table->boolean('isVerified')->default(false);
             $table->timestamps();
         });
     }
