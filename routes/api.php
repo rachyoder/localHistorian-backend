@@ -20,5 +20,7 @@ Route::get('/markers/{imgName}', 'FileuploadController@getImg');
 
 Route::middleware('auth:api')->group(function () {
     Route::post('/fileupload', 'FileuploadController@store');
+    Route::post('/verify', 'FileuploadController@checkVerification');
+    Route::post('/delete', 'FileuploadController@delete');
     Route::get('/logout','AuthenticationController@logout')->name('logout');
 });

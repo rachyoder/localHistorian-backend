@@ -48,5 +48,25 @@ class FileuploadController extends Controller
         $url = public_path().("/images/".$imgName);
         return($url);
     }
+
+    public function checkVerification(Request $request)
+    {
+        $markers = $request->verified;
+        
+        foreach($markers as $marker) {
+            $id = $marker['id'];
+            $selected_marker = Fileupload::find($id);
+            $selected_marker->isVerified = $marker['verify'];
+            $selected_marker->save();
+        }
+        return response()->json('Successfully Verified');
+    }
+
+    public function delete(Request $request) 
+    {
+        $id = $request->id;
+        Fileupload::destroy($id);
+        return response()->json('Successfully deleted');
+    }
 }
 

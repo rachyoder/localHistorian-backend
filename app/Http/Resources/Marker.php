@@ -15,6 +15,7 @@ class Marker extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'filename' => $this->filename,
             'lat' => $this->lat,
             'lon' => $this->lon,
