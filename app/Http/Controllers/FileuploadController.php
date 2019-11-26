@@ -30,7 +30,7 @@ class FileuploadController extends Controller
         }
         $title = $request->get('title');
         $desc = $request->get('desc');
-
+        $addr = $request->get('addr');
 
         $fileupload = new Fileupload();
         $fileupload->filename = $name;
@@ -38,6 +38,7 @@ class FileuploadController extends Controller
         $fileupload->lon = $lon;
         $fileupload->title = $title;
         $fileupload->desc = $desc;
+        $fileupload->addr = $addr;
         $fileupload->save();
         return response()->json('Successfully added');
     }

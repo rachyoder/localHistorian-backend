@@ -20,6 +20,7 @@ class Marker extends JsonResource
             'lon' => $this->lon,
             'title' => $this->title,
             'desc' => $this->desc,
+            'addr' => $this->addr,
         ];
     }
 }
