@@ -69,4 +69,3 @@ class FileuploadController extends Controller
         return response()->json('Successfully deleted');
     }
 }
-
