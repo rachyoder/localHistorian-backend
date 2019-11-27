@@ -19,6 +19,7 @@ class Marker extends JsonResource
             'filename' => $this->filename,
             'lat' => $this->lat,
             'lon' => $this->lon,
+            'orientation' => $this->orientation,
             'title' => $this->title,
             'desc' => $this->desc,
             'addr' => $this->addr,

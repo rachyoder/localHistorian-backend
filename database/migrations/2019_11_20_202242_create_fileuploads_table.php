@@ -16,8 +16,9 @@ class CreateFileuploadsTable extends Migration
         Schema::create('fileuploads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('filename');
-            $table->float('lat', 10, 7);
-            $table->float('lon', 10, 7);
+            $table->float('lat', 11, 7);
+            $table->float('lon', 11, 7);
+            $table->integer('orientation')->nullable();
             $table->string('title');
             $table->string('desc', 1000);
             $table->string('addr');

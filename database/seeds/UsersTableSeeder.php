@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'name' => 'Administrator',
-            'email' => 'admin@admin.com',
+            'email' => 'admin@localHistorian.com',
             'password' => $password,
             'is_admin' => 1,
         ]);
