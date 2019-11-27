@@ -17,7 +17,11 @@ class AuthenticationController extends Controller
         if ($user) {
             if ($user->validateForPassportPasswordGrant($request->password) == $user->password) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-                $response = ['token' => $token];
+                $isAdmin = $user->is_admin;
+                $response = [
+                    'token' => $token,
+                    'isAdmin' => $isAdmin,
+            ];
                 return response($response, 200);
             } else {
                 $response = 'Password mismatch';
