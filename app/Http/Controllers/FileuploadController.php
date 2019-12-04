@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Fileupload;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\Marker as MarkerResource;
-use Kreait\Firebase\Factory;
 
 class FileuploadController extends Controller
 {
@@ -17,25 +15,6 @@ class FileuploadController extends Controller
 
     public function store(Request $request)
     {
-        // $storage = (new Factory())->createStorage();
-        // $name = '';
-        // if ($request->get('file')) {
-        //     $image = $request->get('file');
-        //     $name = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-        //     $storageClient = $storage->getStorageClient();
-        //     $bucket = $storage->getBucket();
-        //     $bucket->upload(
-        //         fopen('/images/' . $name, 'r')
-        //     );
-        //     // $disk = Storage::disk('gcs');
-        //     // $img = \Image::make($request->get('file'));
-        //     // $exists = $disk->exists('images/IMG_20191011_165129.jpg');
-        //     // return response()->json($exists);
-        //     // $path = $disk->put('images/'.$name, $img);
-        //     // $url = $disk->url('images/'.$name);
-        //     // $fileupload->url = $url
-        //     // \Image::make($request->get('file'))->save(public_path('images/') . $name);
-        // }
         if ($request->get('coords')) {
             $coords = $request->get('coords');
             $coords_arr = explode(',', $coords);
